@@ -7,7 +7,7 @@ export class Finder extends Component{
 
     render(){
         return (
-            <p>Finder Component</p>
+            <p>Finder Component One</p>
         )
     }
     

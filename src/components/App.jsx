@@ -1,4 +1,7 @@
-import { Finder } from './Finder'
+import { Finder } from './Finder';
+import { SignupForm } from './Form';
+import { SignupForm02 } from './Form02';
+
 
 export const App = () => {
   return (
@@ -14,6 +17,9 @@ export const App = () => {
     >
       React homework template
         <Finder/>
+
+        <SignupForm  />
+        <SignupForm02/>
 
     </div>
   );
