@@ -1,0 +1,1 @@
+export { pokemonIPI } from './pokemon-api';

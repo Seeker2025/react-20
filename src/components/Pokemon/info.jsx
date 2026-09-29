@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { pokemonAPI } from "components/services/pokemon-api";
+import { PokemonDataView } from "components/PokemonDataView";
+import { PokemonPendingView } from "components/PokemonPendingView/PokemonPendingView";
+console.log(pokemonAPI);
+
+
 
 const Status = {
     IDLE:     'idle',
@@ -16,10 +21,12 @@ export function PokemonInfo ({ pokemonName }){
     useEffect(() =>{
         setStatus( Status.PENDING );
 
-        pokemonAPI
-        .fetchPokemon(pokemonName)
+        
+       pokemonAPI(pokemonName)
         .then(pokemon => {
             setPokemon(pokemon);
+            console.log(pokemon);
+            
             setStatus(Status.RESOLVED);
         })
         .catch(error  => {
@@ -36,11 +43,11 @@ export function PokemonInfo ({ pokemonName }){
         return <PokemonPendingView pokemonName = {pokemonName}/>
     }
 
-    if (status === 'rejected'){
-        return <PokemonErrorView message = {error.message}/>
-    }
+    // if (status === 'rejected'){
+    //     return <PokemonErrorView message = {error.message}/>
+    // }
 
-    if (status === 'resolve'){
-        return <PokemonDateView pokemon = {pokemon}/>
-    }
+        if (status === 'resolved'){
+            return <PokemonDataView pokemon = {pokemon}/>
+        }
 } 

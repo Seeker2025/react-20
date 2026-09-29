@@ -12,5 +12,4 @@ function pokemonAPI( name ){
         // .catch(error => this.setState({ error, status: 'rejected' }))
 };
 
-
 export { pokemonAPI };

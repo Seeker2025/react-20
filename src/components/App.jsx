@@ -1,9 +1,24 @@
+import React, { Component } from 'react';
+
 import { Finder } from './Finder';
 import { SignupForm } from './Form';
 import { SignupForm02 } from './Form02';
+////// Pokemons
+import { PokemonInfo } from 'components/Pokemon';
+import { PokemonForm } from 'components/PokemonForm';
 
 
-export const App = () => {
+export class App extends Component{
+
+    state = {
+          pokemonName: '',
+    };
+
+    handleFormSubmit = (value) =>{
+      this.setState({pokemonName: value})
+    }
+
+  render(){
   return (
     <div
       // style={{
@@ -21,6 +36,17 @@ export const App = () => {
         <SignupForm  />
         <SignupForm02/>
 
+          <h2>Enter a pokemon name</h2>
+        <h3>bulbasaur</h3>
+        <h3>ivysaur</h3>
+        <h3>charmander</h3>
+        <h3>charizard</h3>
+        <h3>squirtle</h3>
+        <h3>ditto</h3>
+        <PokemonForm onSubmit={this.handleFormSubmit}/>
+        <PokemonInfo pokemonName={this.state.pokemonName}/>
+
     </div>
-  );
-};
+    )
+  }
+}
