@@ -1,0 +1,1 @@
+export { PokemonArr } from './ALotOfPokemons';

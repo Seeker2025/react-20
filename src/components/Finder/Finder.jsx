@@ -10,7 +10,7 @@ export class Finder extends Component{
         return (
             <>
             <p>Finder Component One</p>
-            < PokemonInfo/>
+            {/* < PokemonInfo/> */}
             </>
         )
     }

@@ -1,6 +1,6 @@
 import { ImSpinner } from 'react-icons/im';
-import { PokemonDataView } from '../PokemonDataView';
-import  pendingImage from './pendingImage.png';
+import { PokemonDataView } from 'components/PokemonDataView';
+import  pendingImage from './pending.png';
 
 const styles ={
 
