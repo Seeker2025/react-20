@@ -15,9 +15,10 @@ import { PokemonArr             } from "components/ALotOfPokemons";
 
 
 export function PokemonInfo ({ pokemonName }){
+    const [ arr, setArr ]         = useState([])
+
     const [ pokemon, setPokemon ] = useState(null)
     const [ error, setError ]     = useState(null)
-    const [ arr, setArr ]         = useState([])
     const [ status, setStatus ]   = useState(Status.IDLE)  
 
     useEffect(() =>{
