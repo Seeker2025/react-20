@@ -26,3 +26,18 @@ button {
   padding: 10px 15px;
   /* border-radius: 4px; */
 }
+
+ul{
+  /* height: 22px; */
+  background-color: rgb(25, 134, 162);
+  /* list-style: square; */
+  padding-left: 18px;
+  line-height: 12px;
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  /* padding: 0; */
+}

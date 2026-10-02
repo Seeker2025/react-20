@@ -6,7 +6,6 @@ import { PokemonError           } from "components/PokemonError";
 import { PokemonArr        } from "components/ALotOfPokemons";
 // console.log(pokemonAPI);
 
-
                                                 const Status = {
                                                     IDLE:     'idle',
                                                     PENDING:  'pending',
@@ -22,6 +21,14 @@ export function PokemonInfo ({ pokemonName }){
     const [ status, setStatus ]   = useState(Status.IDLE)  
 
     useEffect(() =>{
+
+        //     console.log('Перший рендер');
+        // if(!pokemonName){
+        //     console.log('pokemonName це пустий рядок. fetch не робимо');
+        //     return;
+        // }
+                
+
         pokemonAPI()
                                             .then(pokemon => {
                                                 setArr(pokemon.results)
@@ -37,23 +44,25 @@ export function PokemonInfo ({ pokemonName }){
     }, [])
     
     useEffect(() =>{
-        setStatus( Status.PENDING );
+         if(!pokemonName){
+             console.log('pokemonName це пустий рядок. fetch не робимо');
+            return;
+         }
+        // setStatus( Status.PENDING );
 
-        
         pokemonAPI(pokemonName)
                                             .then(pokemon => {
                                                 setPokemon(pokemon);
                                                 // console.log(pokemon);
                                                 // console.log(pokemon.results);
-                                                setStatus(Status.RESOLVED);
+                                                // setStatus(Status.RESOLVED);
                                             })
                                             .catch(error  => {
                                                 setError(error);
-                                                setStatus(Status.REJECTED);
+                                                // setStatus(Status.REJECTED);
                                             });
+                    
     }, [pokemonName])
-
-
 
     /* We log the `pokemon` state value to the console after it has been updated. */
     useEffect(() => {
@@ -65,7 +74,8 @@ export function PokemonInfo ({ pokemonName }){
 
 return(
     <>
-    {/* <PokemonArr arrOfPokemons = {arr}/> */}
+    <h2>List of Pokémon</h2>
+    { <PokemonArr arrOfPokemons = {arr}/> }
     {
     status === 'idle' && <div>Введите имя покемона.</div>
     }

@@ -34,17 +34,17 @@ export class App extends Component{
 
         <Finder/>
 
-        <SignupForm  />
-        <SignupForm02/>
+        {/* <SignupForm  />
+        <SignupForm02/> */}
 
 
   <h2>Enter a pokemon name</h2>
-        <h3>bulbasaur</h3>
+        {/* <h3>bulbasaur</h3>
         <h3>ivysaur</h3>
         <h3>charmander</h3>
         <h3>charizard</h3>
         <h3>squirtle</h3>
-        <h3>ditto</h3>
+        <h3>ditto</h3> */}
         <PokemonForm onSubmit    =  {this.handleFormSubmit}/>
         <PokemonInfo pokemonName =  {this.state.pokemonName}/>
 
