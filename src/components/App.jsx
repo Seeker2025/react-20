@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import { Finder } from './Finder';
-import { SignupForm } from './Form';
-import { SignupForm02 } from './Form02';
+// import { SignupForm } from './Form';
+// import { SignupForm02 } from './Form02';
 ////// Pokemons
 import { PokemonInfo } from 'components/Pokemon';
 import { PokemonForm } from 'components/PokemonForm';
