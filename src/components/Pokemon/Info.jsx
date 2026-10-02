@@ -48,18 +48,18 @@ export function PokemonInfo ({ pokemonName }){
              console.log('pokemonName це пустий рядок. fetch не робимо');
             return;
          }
-        // setStatus( Status.PENDING );
+        setStatus( Status.PENDING );
 
         pokemonAPI(pokemonName)
                                             .then(pokemon => {
                                                 setPokemon(pokemon);
                                                 // console.log(pokemon);
                                                 // console.log(pokemon.results);
-                                                // setStatus(Status.RESOLVED);
+                                                setStatus(Status.RESOLVED);
                                             })
                                             .catch(error  => {
                                                 setError(error);
-                                                // setStatus(Status.REJECTED);
+                                                setStatus(Status.REJECTED);
                                             });
                     
     }, [pokemonName])
@@ -85,7 +85,7 @@ return(
     }
 
     {
-    status === 'rejected' &&  <PokemonError/>
+    status === 'rejected' &&  <PokemonError error = {error}/>
     }
 
     { 
