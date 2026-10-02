@@ -3,7 +3,7 @@ import { pokemonAPI             } from "components/services/pokemon-api";
 import { PokemonDataView        } from "components/PokemonDataView";
 import { PokemonPendingView     } from "components/PokemonPendingView/PokemonPendingView";
 import { PokemonError           } from "components/PokemonError";
-import { PokemonArr        } from "components/ALotOfPokemons";
+import { PokemonArr             } from "components/ALotOfPokemons";
 // console.log(pokemonAPI);
 
                                                 const Status = {
@@ -91,6 +91,6 @@ return(
     { 
     status === 'resolved' && <PokemonDataView pokemon = {pokemon}/>
     }             
-   </>
+    </>
     )
 }

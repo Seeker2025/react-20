@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { PokemonInfo } from "components/Pokemon";
+// import { PokemonInfo } from "components/Pokemon";
 
 export class Finder extends Component{
     state = {

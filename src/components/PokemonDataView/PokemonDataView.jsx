@@ -1,7 +1,7 @@
 export function PokemonDataView({ pokemon }){
 
      if (!pokemon || !pokemon.sprites) {
-        return null;
+          return null;
     }
 
     const { sprites, name, stats } = pokemon;
