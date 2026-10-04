@@ -35,20 +35,20 @@ export function PokemonInfo ({ pokemonName }){
                                                 setArr(pokemon.results)
                                                 // console.log(pokemon);
                                                 // console.log(pokemon.results);
-                                                setStatus(Status.RESOLVED);
+                                                // setStatus(Status.RESOLVED);
                                             })
                                             .catch(error  => {
                                                 setError(error);
-                                                setStatus(Status.REJECTED);
+                                                // setStatus(Status.REJECTED);
                                             });
 
-    }, [])
+            }, [])
     
     useEffect(() =>{
-         if(!pokemonName){
-             console.log('pokemonName це пустий рядок. fetch не робимо');
-            return;
-         }
+        if(!pokemonName){
+           console.log('pokemonName це пустий рядок. fetch не робимо');
+           return;
+        }
         setStatus( Status.PENDING );
 
         pokemonAPI(pokemonName)
@@ -66,32 +66,35 @@ export function PokemonInfo ({ pokemonName }){
     }, [pokemonName])
 
     /* We log the `pokemon` state value to the console after it has been updated. */
-    useEffect(() => {
-        console.log("pokemon state:", pokemon)
-                    }, [pokemon]);
-    useEffect(() => {
-        console.log("pokemon arr:", arr)
-                    }, [arr]);                
+    /*              
+                                            useEffect(() => {
+                                                console.log("pokemon state:", pokemon)
+                                                            }, [pokemon]);
+                                            useEffect(() => {
+                                                console.log("pokemon arr:", arr)
+                                                            }, [arr]); 
+    */                                               
 
 return(
-    <>
-    <h2>List of Pokémon</h2>
-    { <PokemonArr arrOfPokemons = {arr}/> }
-    {
-    status === 'idle' && <div>Введите имя покемона.</div>
-    }
+        <>
+        <h2>List of Pokémon</h2>
 
-    {
-    status === 'pending' && <PokemonPendingView pokemonName = {pokemonName}/>
-    }
+        { <PokemonArr arrOfPokemons = {arr}/> }
+        {
+        status === 'idle' && <div>Введіть ім'я покемона..</div>
+        }
 
-    {
-    status === 'rejected' &&  <PokemonError error = {error}/>
-    }
+        {
+        status === 'pending' && <PokemonPendingView pokemonName = {pokemonName}/>
+        }
 
-    { 
-    status === 'resolved' && <PokemonDataView pokemon = {pokemon}/>
-    }             
-    </>
-    )
+        {
+        status === 'rejected' &&  <PokemonError error = {error}/>
+        }
+
+        { 
+        status === 'resolved' && <PokemonDataView pokemon = {pokemon}/>
+        }             
+        </>
+        )
 }

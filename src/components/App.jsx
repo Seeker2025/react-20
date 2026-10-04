@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Finder } from './Finder';
 // import { SignupForm } from './Form';
 // import { SignupForm02 } from './Form02';
@@ -47,6 +50,8 @@ export class App extends Component{
         <h3>ditto</h3> */}
         <PokemonForm onSubmit    =  {this.handleFormSubmit}/>
         <PokemonInfo pokemonName =  {this.state.pokemonName}/>
+
+        <ToastContainer />
 
     </div>
     )

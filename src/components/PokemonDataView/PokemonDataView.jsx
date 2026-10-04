@@ -1,7 +1,7 @@
 export function PokemonDataView({ pokemon }){
 
-     if (!pokemon || !pokemon.sprites) {
-          return null;
+    if (!pokemon || !pokemon.sprites) {
+                                                    return null;
     }
 
     const { sprites, name, stats } = pokemon;
@@ -23,7 +23,6 @@ export function PokemonDataView({ pokemon }){
                         {entry.stat.name}: {entry.base_stat}
                     </li>
                 ))}
-
             </ul>
 
         </div>

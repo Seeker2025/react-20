@@ -1,42 +1,43 @@
-import { Component  } from 'react';
+// import { Component  } from 'react';
+import { useState   } from 'react';
 import { ImSearch   } from 'react-icons/im';
 import { toast      } from 'react-toastify';
 
 const styles = { form: { marginBottom: 20, marginTop: 15 }}
 
-export class PokemonForm extends Component{
-    state = {
-        pokemon: '',
+export function PokemonForm ({ onSubmit }){
+    // state = {
+    //     pokemon: '',
+    // }
+
+    const [pokemonName, setPokemonName] = useState('');
+
+    const handleNameChange = event =>{
+    setPokemonName(event.currentTarget.value.toLowerCase());
     }
 
-    handleNameChange = event =>{
-    this.setState({ pokemon: event.currentTarget.value.toLowerCase()});
-    }
-
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault();
 
-        if(this.state.pokemon.trim() === ''){
-            alert('Введите имя покемона')
-            toast.error('Введите имя покемона!');
+        if(pokemonName.trim() === ''){
+            alert(`Введить ім'я покемона!`)
+            toast.error(`Введить ім'я покемона`);
             return;
         }
 
-        console.log(this.state.pokemon);
-        
+        // console.log(this.state.pokemon);
 
-        this.props.onSubmit(this.state.pokemon);
-        this.setState({ pokemon: ''})
+       onSubmit(pokemonName);
+       setPokemonName('');
     };
 
-    render(){
         return(
-            <form onSubmit={this.handleSubmit} style={styles.form}>
+            <form onSubmit={handleSubmit} style={styles.form}>
                 <input
                 type="text"
                 name="pokemon"
-                value={this.state.pokemon}
-                onChange={this.handleNameChange}
+                value={pokemonName}
+                onChange={handleNameChange}
                 />
                 <button type="submit">
 
@@ -45,6 +46,6 @@ export class PokemonForm extends Component{
 
                 </button>
             </form>
-        );
-    }
+            );
+    
 };

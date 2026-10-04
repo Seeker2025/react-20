@@ -11,7 +11,7 @@ function pokemonAPI( name ){
             if(response.ok){
                 return response.json();
             }
-            return Promise.reject(
+                return Promise.reject(
                 new Error(`Немає покемона на ім'я ${name}`)
             );
         })
